@@ -30,33 +30,34 @@ connection.connect(function (err) {
 });
 
 function start(results) {
-
-
-    inquirer.prompt([
-        {
-            // type is limited to "input" or other specific commands (input, confirm, list, rawlist, etc..).  Name field is freeform.
-            type: "list",
-            name: "selectItemID",
-            message: "What is the Item ID of the product you would like to buy?",
-            choices: function () {
-                var choiceArrayItemId = [];
-                for (var i = 0; i < results.length; i++) {
-                    choiceArrayItemId.push(results[i].item_id.toString());
+    if (results) {
+        inquirer.prompt([
+            {
+                // type is limited to "input" or other specific commands (input, confirm, list, rawlist, etc..).  Name field is freeform.
+                type: "list",
+                name: "selectItemID",
+                message: "What is the Item ID of the product you) would like to buy?",
+                choices: function () {
+                    var choiceArrayItemId = [];
+                    for (var i = 0; i < results.length; i++) {
+                        choiceArrayItemId.push(results[i].item_id.toString());
+                    }
+                    return choiceArrayItemId;
                 }
-                return choiceArrayItemId;
+            },
+            {
+                type: "input",
+                name: "selectNumUnits",
+                message: "How many would you like to buy?"
             }
-        },
-        {
-            type: "input",
-            name: "selectNumUnits",
-            message: "How many would you like to buy?"
-        }
 
-    ])
+        ])
 
-        .then(function (answer) {
-            CheckUnits(answer.selectItemID, answer.selectNumUnits);
-        });
+            .then(function (answer) {
+                CheckUnits(answer.selectItemID, answer.selectNumUnits);
+            });
+    }
+
 };
 
 // Once the customer has placed the order, application should check if your store has enough 

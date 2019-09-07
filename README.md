@@ -8,4 +8,4 @@ Operating instructions:  Open bamazonCustomer.js file and follow prompts to sele
     If there is not enough stock in the inventory, user will not be able to complete the transaction.
 Files list:  bamazonCustomer.js, bamazonDB, and node modules.
 
-Link to screenshots of application:  https://docs.google.com/document/d/1JO91XlixAjpT6yUjaXwuWmyUkk5qjw8MPMesbZtDznM/edit?usp=sharing
+Link to screenshots of application:  https://docs.google.com/document/d/1Sng5a-sQOBQXrIUySTox1n1ZbSjwxjiVIqO0oO974ok/edit
